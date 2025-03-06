@@ -22,38 +22,29 @@
         }
         .name {
             position: absolute;
-            top: 45.5%;  /* Điều chỉnh vị trí dọc */
-            left: 28%;  /* Điều chỉnh vị trí ngang */
+            top: 43%; /* Điều chỉnh để đặt vào đúng vị trí */
+            left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 28px;
+            font-size: 30px;
             font-weight: bold;
             color: black;
-            white-space: nowrap;
+            white-space: nowrap; /* Ngăn chữ xuống dòng */
         }
-
-
     </style>
 </head>
 <body>
     <div class="certificate">
-        <img src="https://raw.githubusercontent.com/hoangnamit04/certificate-generator/refs/heads/main/cert.png" alt="Certificate">
-        <div class="name" id="certificateName">Your Name</div>
-        </div>
-   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Kiểm tra xem phần tử có tồn tại không
-        const nameElement = document.getElementById("certificateName");
-        
-        if (nameElement) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const userName = urlParams.get('name') || 'Your Name';
-            
-            // Cập nhật nội dung tên trên chứng chỉ
-            nameElement.textContent = decodeURIComponent(userName);
-        } else {
-            console.error("❌ Element #certificateName not found! Kiểm tra lại HTML.");
-        }
-    });
-</script>
+        <img src="https://raw.githubusercontent.com/hoangnamit04/certificate-generator/main/cert.png" alt="Certificate">
+        <div class="name" id="certificateName"></div>
+    </div>
+
+    <script>
+        // Lấy tham số từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('name') || 'Your Name';
+
+        // Gán vào thẻ div
+        document.getElementById('certificateName').textContent = userName;
+    </script>
 </body>
 </html>
