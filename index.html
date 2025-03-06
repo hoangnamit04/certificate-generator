@@ -36,18 +36,21 @@
         <img src="https://raw.githubusercontent.com/hoangnamit04/certificate-generator/main/cert.png" alt="Certificate">
         <div class="name" id="certificateName">Your Name</div>
         </div>
-    <script>
+   <script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Kiểm tra xem phần tử có tồn tại không
         const nameElement = document.getElementById("certificateName");
+        
         if (nameElement) {
             const urlParams = new URLSearchParams(window.location.search);
             const userName = urlParams.get('name') || 'Your Name';
+            
+            // Cập nhật nội dung tên trên chứng chỉ
             nameElement.textContent = decodeURIComponent(userName);
         } else {
-            console.error("Element #certificateName not found!");
+            console.error("❌ Element #certificateName not found! Kiểm tra lại HTML.");
         }
     });
 </script>
-
 </body>
 </html>
