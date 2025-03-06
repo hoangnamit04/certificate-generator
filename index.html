@@ -35,8 +35,11 @@
     <div class="certificate">
         <img src="https://raw.githubusercontent.com/hoangnamit04/certificate-generator/main/cert.png" alt="Certificate">
         <div class="name">
-            
         </div>
-    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const userName = urlParams.get('name') || 'Your Name';
+        document.getElementById("certificateName").innerText = userName;
+    </script>
 </body>
 </html>
