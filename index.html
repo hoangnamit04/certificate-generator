@@ -37,11 +37,13 @@
         <div class="name">
         </div>
     <script>
-        // Đợi trang tải hoàn tất rồi mới cập nhật tên
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
-            const userName = urlParams.get('name') || 'Your Name';
-            document.getElementById("certificateName").textContent = userName;
+            const userName = urlParams.get('name');
+
+            if (userName) {
+                document.getElementById("certificateName").textContent = decodeURIComponent(userName);
+            }
         });
     </script>
 </body>
