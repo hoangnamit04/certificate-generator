@@ -37,14 +37,17 @@
         <div class="name">
         </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
+        const nameElement = document.getElementById("certificateName");
+        if (nameElement) {
             const urlParams = new URLSearchParams(window.location.search);
-            const userName = urlParams.get('name');
+            const userName = urlParams.get('name') || 'Your Name';
+            nameElement.textContent = decodeURIComponent(userName);
+        } else {
+            console.error("Element #certificateName not found!");
+        }
+    });
+</script>
 
-            if (userName) {
-                document.getElementById("certificateName").textContent = decodeURIComponent(userName);
-            }
-        });
-    </script>
 </body>
 </html>
